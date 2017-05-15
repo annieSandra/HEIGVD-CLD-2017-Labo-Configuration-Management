@@ -1,7 +1,7 @@
 
 # LABORATOIRE 7 - Configuration management
 
-Dans ce laboratoire nous nous intéressons
+Dans ce laboratoire nous nous intéressons au gestionnaire de configuration. En effet, nous allons nous familiariser avec les outils de gestion de configuration comme ansible, déployer une application web dans un mode automatisé et enfin se familiariser avec un état de configuration voulu. 
 
 ## ETUDIANTS 
 

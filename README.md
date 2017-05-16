@@ -19,7 +19,7 @@ Dans ce laboratoire nous nous intéressons au gestionnaire de configuration. En 
 
 ## TÂCHE 1: INSTALLATION ANSIBLE
 Nous avons choisi de travailler avec la machine linux version 14.04 LTS, ainsi nous avons installer python (necessaire pour installer ansible) et ansible comme vous pouvez le constater sur l'image suivante 
-![installation d'ansible](assets/images/Tache1_1_installationAsible.png)
+![installation d'ansible](assets/images/Tache1_1_installationAnsible.png)
 
 ## TÂCHE 2: CREATION MACHINE VIRTUELLE DANS AMAZON WEB SERVICE
 
@@ -57,6 +57,22 @@ Et le test du bon focntionnement de l'installation à partir d'un browser nous a
 
 ## TÂCHE 5: TEST ETAT VOULUE DE LA CONFIGURATION PRINCIPALE
 
+-lors du 2ème lancement d'ansible on remarque qu'on a plus qu'une seule tâche en changed(retsart nginx ) contrairement au premier lancement ou on avait 4 changed ce qui est normal car pour l'installation de nginx on a specifier qu'il pouvais être mis en cache avec `update_cache=yes` qui permet lors d'une seconde exécution d'aller cherger en mémoire s'il y a ou pas le programme déjà installé pour ce qui est des autres tâche il s'agit des copies sur des copies existantes donc il n'y aura rien à modifier
+![Etat config](assets/images/Tache5_2_second_lancement_correct.png)
+ après avoir mis en commentaire `update_cache=yes` sur la tache install nginx on obtenu le même resultat.
+ 
+ -si l'on modifie le fichier default dans la VM comme suivant:
+ ![Etat config](assets/images/Tache5_3_modif_a_line.png)
+ 
+ on remarque que lors du prochain run se fichier sera écrasé par celui fourni par ansible ainsi la tache `copy nginx config file` se met à l'etat changed comme suit:
+ ![Etat config](assets/images/Tache5_3_after_modified.png)
+ 
+ -après suppression de la page d'acceuil on a la tache ` copy index.html qui revient à l'etat changed ` puis lors des autres exécution revient à l'etat OK.
+ On peut déduire de cela que l'etat ok est retourné quand la tâche avait déjà été effectuée avec le mêmme contenu(de destination bien-sûr) et l'etat Changed lorsque la tâche s'exécute pour la première ou le contenu de destination a été modifier d'une certaine manière (il génère un nouveau contenu dans la VM) 
+ 
+
 ## TÂCHE 6: AJOUT D'UN GESTIONNAIRE POUR REDEMARRAGE DE NGINX
+
+
 
 ## TÂCHE 7: AJOUTER PLUS DE GESTIONNAIRE DE SERVEUR

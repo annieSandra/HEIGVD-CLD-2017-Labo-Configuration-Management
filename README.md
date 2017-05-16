@@ -14,8 +14,9 @@ Dans ce laboratoire nous nous intéressons au gestionnaire de configuration. En 
 3. [Tâche 3: Configuration d'ansible pour la connection au gestionnaire de la VM](#t%C3%82che-3-configuration-ansible-connection-a-la-vm)
 4. [Tâche 4: Installation de l'application web](#t%C3%82che-4-installation-application-web)
 5. [Tâche 5: Test de l'état voulue de la configuration principale](#t%C3%82che-5-test-etat-voulue-de-la-configuration-principale)
-6. [Tâche 6: Ajout d'un gestionnaire pour redemarrage de NGINX](#t%C3%82che-6-ajout-d-'-un-gestionnaire-pour-redemarrage-de-nginx)
-7. [Tâche 7: Ajouter plus de gestionnaire de serveur](#t%C3%82che-7-ajouter-plus-de-gestionnaire-de-serveur)
+6. [Tâche 6: Ajout d'un gestionnaire pour redemarrage de NGINX](#t%C3%82che-6-ajout-d-un-gestionnaire-pour-redemarrage-de-nginx)
+7. [Tâche 7: Ajouter plus de gestionnaire de serveur](#t%C3%82che-7-ajouter-une-instance-au-gestionnaire-instance)
+
 
 ## TÂCHE 1: INSTALLATION ANSIBLE
 Nous avons choisi de travailler avec la machine linux version 14.04 LTS, ainsi nous avons installer python (necessaire pour installer ansible) et ansible comme vous pouvez le constater sur l'image suivante 
@@ -71,7 +72,7 @@ Et le test du bon focntionnement de l'installation à partir d'un browser nous a
  On peut déduire de cela que l'etat ok est retourné quand la tâche avait déjà été effectuée avec le mêmme contenu(de destination bien-sûr) et l'etat Changed lorsque la tâche s'exécute pour la première ou le contenu de destination a été modifier d'une certaine manière (il génère un nouveau contenu dans la VM) 
  
 
-## TÂCHE 6: AJOUT D'UN GESTIONNAIRE POUR REDEMARRAGE DE NGINX
+## TÂCHE 6: AJOUT D UN GESTIONNAIRE POUR REDEMARRAGE DE NGINX
 
 après l'ajout du gestionnaire (En principe nous avons juste changer la tache `restart nginx` en Handle et ajouter des notify sur les autre tâche pour qu'il ne s'exécute que si les autre tâches ont changées d'état) suivant le code : 
 ```
@@ -82,22 +83,22 @@ après l'ajout du gestionnaire (En principe nous avons juste changer la tache `r
     - name: install nginx
       apt: name=nginx update_cache=yes
       notify:
-         -restart nginx
+         - restart nginx
     - name: copy nginx config file
       copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
       notify:
-         -restart nginx
+         - restart nginx
     - name: enable configuration
       file: >
         dest=/etc/nginx/sites-enabled/default
         src=/etc/nginx/sites-available/default
         state=link
       notify:
-         -restart nginx
+         - restart nginx
     - name: copy index.html
       template: src=templates/index.html.j2 dest=/usr/share/nginx/html/index.html mode=0644
       notify:
-         -restart nginx
+         - restart nginx
   handlers:
     - name: restart nginx
       service: name=nginx state=restarted

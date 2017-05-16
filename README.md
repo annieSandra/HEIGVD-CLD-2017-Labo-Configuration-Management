@@ -62,7 +62,7 @@ Et le test du bon focntionnement de l'installation à partir d'un browser nous a
  après avoir mis en commentaire `update_cache=yes` sur la tache install nginx on obtenu le même resultat.
  
  -si l'on modifie le fichier default dans la VM comme suivant:
- ![Etat config](assets/images/Tache5_3_modif_a_line.png)
+ ![Etat config](assets/images/Tache5_3_modif_a _line.png)
  
  on remarque que lors du prochain run se fichier sera écrasé par celui fourni par ansible ainsi la tache `copy nginx config file` se met à l'etat changed comme suit:
  ![Etat config](assets/images/Tache5_3_after_modified.png)

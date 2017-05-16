@@ -73,6 +73,39 @@ Et le test du bon focntionnement de l'installation à partir d'un browser nous a
 
 ## TÂCHE 6: AJOUT D'UN GESTIONNAIRE POUR REDEMARRAGE DE NGINX
 
+après l'ajout du gestionnaire (En principe nous avons juste changer la tache `restart nginx` en Handle et ajouter des notify sur les autre tâche pour qu'il ne s'exécute que si les autre tâches ont changées d'état) suivant le code : 
+```
+- name: Configure webserver with nginx
+  hosts: webservers
+  sudo: True
+  tasks:
+    - name: install nginx
+      apt: name=nginx update_cache=yes
+      notify:
+         -restart nginx
+    - name: copy nginx config file
+      copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
+      notify:
+         -restart nginx
+    - name: enable configuration
+      file: >
+        dest=/etc/nginx/sites-enabled/default
+        src=/etc/nginx/sites-available/default
+        state=link
+      notify:
+         -restart nginx
+    - name: copy index.html
+      template: src=templates/index.html.j2 dest=/usr/share/nginx/html/index.html mode=0644
+      notify:
+         -restart nginx
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
+```
+on obtient lors du lacement du programme un resultat tout en vert : 
+![Ajout du gestionnaire](assets/images/Tache6_1_apres_modif.png)
 
 
 ## TÂCHE 7: AJOUTER PLUS DE GESTIONNAIRE DE SERVEUR
+
+

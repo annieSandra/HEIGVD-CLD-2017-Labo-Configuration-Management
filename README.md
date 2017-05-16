@@ -11,11 +11,11 @@ Dans ce laboratoire nous nous intéressons au gestionnaire de configuration. En 
 ## TABLE DES MATIERES 
 1. [Tâche 1: Installation d'ansible](#t%C3%82che-1-installation-ansible)
 2. [Tâche 2: Création d'une machine virtuelle dans amazon web service](#t%C3%82che-2-creation-machine-virtuelle-dans-amazon-web-service)
-3. [Tâche 3: Configuration d'ansible pour la connection au gestionnaire de la VM](#t%C3%82che-3-configuration-ansible-connection-a-la-vm)
+3. [Tâche 3: Configuration d'ansible pour la connection au gestionnaire de la VM](#t%C3%82che-3-configuration-ansible-pour-connection-a-la-vm)
 4. [Tâche 4: Installation de l'application web](#t%C3%82che-4-installation-application-web)
 5. [Tâche 5: Test de l'état voulue de la configuration principale](#t%C3%82che-5-test-etat-voulue-de-la-configuration-principale)
 6. [Tâche 6: Ajout d'un gestionnaire pour redemarrage de NGINX](#t%C3%82che-6-ajout-d-un-gestionnaire-pour-redemarrage-de-nginx)
-7. [Tâche 7: Ajouter plus de gestionnaire de serveur](#t%C3%82che-7-ajouter-une-instance-au-gestionnaire-instance)
+7. [Tâche 7: Ajouter plus de gestionnaire de serveur](#t%C3%82che-7-ajouter-une-instance-au-gestionnaire-d-instance)
 
 
 ## TÂCHE 1: INSTALLATION ANSIBLE
@@ -107,7 +107,7 @@ on obtient lors du lacement du programme un resultat tout en vert :
 ![Ajout du gestionnaire](assets/images/Tache6_1_apres_modif.png)
 
 
-## TÂCHE 7: AJOUTER UNE INSTANCE AU GESTIONNAIRE D'INSTANCE
+## TÂCHE 7: AJOUTER UNE INSTANCE AU GESTIONNAIRE D INSTANCE
 
 En ajoutant une instance supplémentaire au webserver on ne constate aucun changement dans la sotie de l'execution du .yml en plus en verifiant l'accessibilité de l'instance à partir de notre browser on remarque que son contenu est identique à celui de la 1ère instance
 -modification web.yml pour ajouter l'adresse IP de la nouvelle instance:

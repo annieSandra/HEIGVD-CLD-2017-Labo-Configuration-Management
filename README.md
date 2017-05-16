@@ -106,6 +106,18 @@ on obtient lors du lacement du programme un resultat tout en vert :
 ![Ajout du gestionnaire](assets/images/Tache6_1_apres_modif.png)
 
 
-## TÂCHE 7: AJOUTER PLUS DE GESTIONNAIRE DE SERVEUR
+## TÂCHE 7: AJOUTER UNE INSTANCE AU GESTIONNAIRE D'INSTANCE
+
+En ajoutant une instance supplémentaire au webserver on ne constate aucun changement dans la sotie de l'execution du .yml en plus en verifiant l'accessibilité de l'instance à partir de notre browser on remarque que son contenu est identique à celui de la 1ère instance
+-modification web.yml pour ajouter l'adresse IP de la nouvelle instance:
+![Ajout du gestionnaire](assets/images/Tache7_2_new_instance_run_yml.png)
+
+-vérification accès par browser de l'instance après exécution du yml
+![Ajout du gestionnaire](assets/images/Tache7_3_verify_second_instance_access.png)
+
+si rend indisponible une des 2 instance aucune erreur n'est retourné lors de la reexécution du yml:
+![Ajout du gestionnaire](assets/images/Tache7_4_instance_unreachable.png)
+
+
 
 

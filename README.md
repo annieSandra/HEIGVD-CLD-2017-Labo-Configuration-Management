@@ -15,7 +15,7 @@ Dans ce laboratoire nous nous intéressons au gestionnaire de configuration. En 
 4. [Tâche 4: Installation de l'application web](#t%C3%82che-4-installation-application-web)
 5. [Tâche 5: Test de l'état voulue de la configuration principale](#t%C3%82che-5-test-etat-voulue-de-la-configuration-principale)
 6. [Tâche 6: Ajout d'un gestionnaire pour redemarrage de NGINX](#t%C3%82che-6-ajout-d-un-gestionnaire-pour-redemarrage-de-nginx)
-7. [Tâche 7: Ajouter plus de gestionnaire de serveur](#t%C3%82che-7-ajouter-une-instance-au-gestionnaire-d-instance)
+7. [Tâche 7: Ajouter une instance au gestionnaire d'instance](#t%C3%82che-7-ajouter-une-instance-au-gestionnaire-d-instance)
 
 
 ## TÂCHE 1: INSTALLATION ANSIBLE
